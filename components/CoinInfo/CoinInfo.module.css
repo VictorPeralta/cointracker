@@ -1,0 +1,30 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  width: 360px;
+}
+
+.tickerContainer {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.sText {
+  font-size: 0.9em;
+}
+
+.xsText {
+  font-size: 0.75em;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.price {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
