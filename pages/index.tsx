@@ -1,37 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import CoinInfo from "../components/CoinInfo/CoinInfo";
-import Spinner from "../components/Spinner/Spinner";
+import MarketData from "../components/MarketData/MarketData";
 import styles from "../styles/Home.module.css";
-import { CoinGeckoMarketData, getCoinMarketsData } from "../utils/coingecko";
 
 const Home: NextPage = () => {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<boolean>();
-  const [data, setData] = useState<CoinGeckoMarketData[]>();
-
-  useEffect(() => {
-    const fetchCoinPrices = async () => {
-      try {
-        const marketsData = await getCoinMarketsData({
-          vs_currency: "USD",
-          sparkline: true,
-          per_page: 10,
-        });
-        setData(marketsData);
-      } catch (error) {
-        console.error(error);
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCoinPrices();
-  }, []);
-
   return (
     <div className={styles.container}>
       <Head>
@@ -42,20 +14,8 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <>
-          {loading && <Spinner />}
-          {error && "Something went wrong"}
-          {data && <h1>Coin tracker</h1>}
-          {data?.map((d) => (
-            <CoinInfo
-              key={d.symbol}
-              ticker={d.symbol}
-              marketCap={d.market_cap}
-              change={d.price_change_percentage_24h}
-              currency="$"
-              price={d.current_price}
-              sparkline={d.sparkline_in_7d}
-            />
-          ))}
+          <h1>Coin Tracker</h1>
+          <MarketData />
         </>
       </main>
 
