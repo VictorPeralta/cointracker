@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
-  width: 360px;
+  max-width: 360px;
+  min-width: 100%;
 }
 
 .tickerContainer {
