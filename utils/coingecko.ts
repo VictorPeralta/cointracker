@@ -50,7 +50,7 @@ export interface CoinGeckoMarketData {
   sparkline_in_7d: Sparkline;
 }
 
-export const getCoinMarketsData = async (params: CoinMarketsParams = {}) => {
+export const getCoinMarketsData = async (params: CoinMarketsParams) => {
   const stringParams = Object.entries(params).map(([key, value]) => {
     return [key, value.toString()] as [string, string];
   });
